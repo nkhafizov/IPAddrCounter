@@ -13,7 +13,8 @@ import java.util.concurrent.TimeUnit;
  * The required max size of the BitSet to store all the unique IPv4 addresses is (2^32/8) bytes = 512 MB.
  */
 public class UniqueIPv4Counter {
-    // Either implement BackpressureExecutorService to be safe from OOM or workStealingPool to use threads efficiently
+    // Either custom Backpressure ThreadPool (e.g., with CallerRunsPolicy and bounded pool) to avoid OOM
+    // or workStealingPool to use threads efficiently
     private final ExecutorService executorService = Executors.newWorkStealingPool();
     private final Phaser activeTaskCounter = new Phaser(1);
     private static final long TOTAL_NUM_IPV4 = 1L << 32;
