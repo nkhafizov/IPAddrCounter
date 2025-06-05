@@ -14,7 +14,7 @@ public class BatchedFileReader {
     private final int linesPerTask;
 
     public BatchedFileReader() {
-        this.linesPerTask = 100_000;
+        this.linesPerTask = 10_000;
     }
 
     public BatchedFileReader(int linesPerTask) {
