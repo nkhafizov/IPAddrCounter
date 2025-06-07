@@ -61,7 +61,7 @@ public class UniqueIPv4Counter {
     public long convertToBitSetIndex(String ip) {
         String[] parts = ip.split("\\.");
         if (parts.length != 4) {
-            throw new IllegalArgumentException("Invalid IP: " + ip);
+            throw new IllegalArgumentException("Invalid IP format, expected 4 octets: " + ip);
         }
 
         long a = parseAndValidateOctet(parts[0], ip);
